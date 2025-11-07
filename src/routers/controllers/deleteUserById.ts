@@ -19,5 +19,6 @@ export function deleteUserById(req: IncomingMessage, res: ServerResponse) {
   usersDb.splice(index, 1);
 
   res.statusCode = 204;
+  res.end()
   return
 }

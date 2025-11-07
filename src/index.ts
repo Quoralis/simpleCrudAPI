@@ -22,13 +22,19 @@ router.put('/api/users/:userId',putUserById);
 router.delete('/api/users/:userId',deleteUserById);
 
 const server = createServer((req: IncomingMessage, res: ServerResponse) => {
-  if (!req.url) {
-    res.statusCode = 400;
-    return res.end('Bad request');
+  try {
+    if (!req.url) {
+      res.statusCode = 400;
+      return res.end(JSON.stringify({ error: 'Bad request' }));
+    }
+    router.handler(req, res);
+  } catch (err) {
+    console.error(err);
+    res.statusCode = 500;
+    res.end(JSON.stringify({ error: 'Internal Server Error' }));
   }
-  router.handler(req,res);
-
 });
+
 
 server.listen(PORT, () => {
   console.log('Server started on port', PORT);
