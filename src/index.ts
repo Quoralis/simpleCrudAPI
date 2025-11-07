@@ -7,6 +7,7 @@ import { postUser } from './routers/controllers/postUser.js';
 import { getAllUsers } from './routers/controllers/getAllUsers.js';
 import { getUserById } from './routers/controllers/getUserById.js';
 import { putUserById } from './routers/controllers/putUserById.js';
+import { deleteUserById } from './routers/controllers/deleteUserById.js';
 
 dotenv.config();
 const PORT = process.env.PORT || 3000;
@@ -18,6 +19,7 @@ router.get('/api/users', getAllUsers);
 router.get('/api/users/:userId', getUserById);
 router.post('/api/users',postUser);
 router.put('/api/users/:userId',putUserById);
+router.delete('/api/users/:userId',deleteUserById);
 
 const server = createServer((req: IncomingMessage, res: ServerResponse) => {
   if (!req.url) {
