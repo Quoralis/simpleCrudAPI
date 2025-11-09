@@ -11,7 +11,7 @@
     "skipLibCheck": true,
     "isolatedModules": true,
 
-    "types": ["node","jest"],
+    "types": ["node", "jest"],
 
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
@@ -19,5 +19,6 @@
     "declaration": true,
     "declarationMap": true
   },
-  "include": ["src" ,"tests"]
+  "include": ["src"],
+  "exclude": ["tests", "node_modules"]
 }
