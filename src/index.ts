@@ -12,7 +12,7 @@ import { deleteUserById } from './routers/controllers/deleteUserById.js';
 dotenv.config();
 const PORT = process.env.PORT || 3000;
 
-const router = new Router();
+export const router = new Router();
 
 
 router.get('/api/users', getAllUsers);
